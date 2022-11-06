@@ -1,0 +1,17 @@
+version: "3.4"
+
+services:
+  
+  homebox:
+    image: ghcr.io/hay-kot/homebox:latest
+    container_name: homebox
+    restart: unless-stopped
+    environment:
+    - HBOX_LOG_LEVEL=info
+    - HBOX_LOG_FORMAT=text
+    - HBOX_WEB_MAX_UPLOAD_SIZE=10
+    volumes:
+      - ./homebox-data:/data/
+    ports:
+      - "8200:7745"
+
